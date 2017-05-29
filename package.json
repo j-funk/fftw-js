@@ -1,0 +1,28 @@
+{
+  "name": "fftw-js",
+  "version": "0.1.0",
+  "description": "Javascript port of FFTW via Emscripten",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:j-funk/fftw-js"
+  },
+  "engines": {
+    "node": "4.4.7^"
+  },
+  "keywords": [
+    "FFT",
+    "DSP",
+    "fast-fourier-transform",
+    "digital-signal-processing",
+    "FFTW"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  },
+  "license": "GPL"
+}
