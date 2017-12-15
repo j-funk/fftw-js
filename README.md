@@ -11,4 +11,5 @@ The examples are only of the real valued transform / inverse, however complex
 to complex is also available.
 
 Thanks to [Chris Cannam](https://code.soundsoftware.ac.uk/projects/js-dsp-test)
-for the original benchmark tool and for transpiling FFTW.
+for the original benchmark tool and for transpiling FFTW. This version has 
+been optimized to perform much faster since forking Chris' version.
