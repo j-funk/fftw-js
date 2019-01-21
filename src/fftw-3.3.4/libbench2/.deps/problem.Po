@@ -1,0 +1,61 @@
+problem.o: problem.c ../config.h bench.h bench-user.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/strings.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/ctype.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/ctype.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/ctype.h
+
+../config.h:
+
+bench.h:
+
+bench-user.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/strings.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/ctype.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/ctype.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/ctype.h:

@@ -1,0 +1,43 @@
+mp.o: mp.c ../config.h bench.h bench-user.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/math.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/math.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/math.h
+
+../config.h:
+
+bench.h:
+
+bench-user.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/math.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/math.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/math.h:

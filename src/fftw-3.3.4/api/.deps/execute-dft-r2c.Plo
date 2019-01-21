@@ -1,0 +1,90 @@
+execute-dft-r2c.lo: execute-dft-r2c.c api.h fftw3.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h \
+  ../kernel/ifftw.h ../config.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdarg.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdarg.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/types.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/endian.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdint.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdint.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/stdint.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/select.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/sysmacros.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/inttypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/inttypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/time.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/time.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/time.h \
+  ../rdft/rdft.h ../rdft/codelet-rdft.h
+
+api.h:
+
+fftw3.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stddef.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stddef.h:
+
+../kernel/ifftw.h:
+
+../config.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdlib.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/alloca.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/stdarg.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdarg.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/types.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/endian.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdint.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdint.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/stdint.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/select.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/sysmacros.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/inttypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/inttypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/sys/time.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/time.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/time.h:
+
+../rdft/rdft.h:
+
+../rdft/codelet-rdft.h:

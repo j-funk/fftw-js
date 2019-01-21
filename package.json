@@ -4,7 +4,8 @@
   "description": "Javascript port of FFTW via Emscripten",
   "main": "src/main.js",
   "scripts": {
-    "test": "mocha"
+    "build": "cd src && make clean -f Makefile.emscripten && make -f Makefile.emscripten",
+    "test": "mocha --full-trace"
   },
   "repository": {
     "type": "git",
