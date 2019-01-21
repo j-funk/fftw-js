@@ -167,64 +167,38 @@ FFTWModule.r2c.fft1d = function (size) {
     }
 }
 
+const r2rFactory = function (forwardType, inverseType) {
+  return function (size) {
+      this.size = size
+      this.rptr = fftwf_malloc(size*4 + size*4)
+      this.cptr = this.rptr
+      this.r = new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, size)
+      this.c = new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, size)
 
-FFTWModule.r2r.fft1d = function (size) {
-    this.size = size
-    this.rptr = fftwf_malloc(size*4 + size*4)
-    this.cptr = this.rptr
-    this.r = new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, size)
-    this.c = new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, size)
+      this.fplan = fftwf_plan_r2r_1d(size, this.rptr, this.cptr, forwardType, FFTW_ESTIMATE)
+      this.iplan = fftwf_plan_r2r_1d(size, this.cptr, this.rptr, inverseType, FFTW_ESTIMATE)
 
-    this.fplan = fftwf_plan_r2r_1d(size, this.rptr, this.cptr, FFTW_R2HC, FFTW_ESTIMATE)
-    this.iplan = fftwf_plan_r2r_1d(size, this.cptr, this.rptr, FFTW_HC2R, FFTW_ESTIMATE)
+      this.forward = function(real) {
+          this.r.set(real)
+          fftwf_execute(this.fplan)
+          return new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, this.size)
+      }
 
-    this.forward = function(real) {
-        this.r.set(real)
-        fftwf_execute(this.fplan)
-        return new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, this.size)
-    }
+      this.inverse = function(cpx) {
+          this.c.set(cpx)
+          fftwf_execute(this.iplan)
+          return new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, this.size)
+      }
 
-    this.inverse = function(cpx) {
-        this.c.set(cpx)
-        fftwf_execute(this.iplan)
-        return new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, this.size)
-    }
-
-    this.dispose = function() {
-        fftwf_destroy_plan(this.fplan)
-        fftwf_destroy_plan(this.iplan)
-        fftwf_free(this.rptr)
-    }
+      this.dispose = function() {
+          fftwf_destroy_plan(this.fplan)
+          fftwf_destroy_plan(this.iplan)
+          fftwf_free(this.rptr)
+      }
 }
 
-FFTWModule.r2r.dct1d = function (size) {
-    this.size = size
-    this.rptr = fftwf_malloc(size*4 + size*4)
-    this.cptr = this.rptr
-    this.r = new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, size)
-    this.c = new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, size)
-
-    this.fplan = fftwf_plan_r2r_1d(size, this.rptr, this.cptr, FFTW_REDFT10, FFTW_ESTIMATE)
-    this.iplan = fftwf_plan_r2r_1d(size, this.cptr, this.rptr, FFTW_REDFT01, FFTW_ESTIMATE)
-
-    this.forward = function(real) {
-        this.r.set(real)
-        fftwf_execute(this.fplan)
-        return new Float32Array(FFTWModule.HEAPU8.buffer, this.cptr, this.size)
-    }
-
-    this.inverse = function(cpx) {
-        this.c.set(cpx)
-        fftwf_execute(this.iplan)
-        return new Float32Array(FFTWModule.HEAPU8.buffer, this.rptr, this.size)
-    }
-
-    this.dispose = function() {
-        fftwf_destroy_plan(this.fplan)
-        fftwf_destroy_plan(this.iplan)
-        fftwf_free(this.rptr)
-    }
-}
+FFTWModule.r2r.fft1d = r2rFactory(FFTW_R2HC, FFTW_HC2R)
+FFTWModule.r2r.dct1d = r2rFactory(FFTW_REDFT10, FFTW_REDFT01)
 
 
 FFTWModule.ready =  function () {
