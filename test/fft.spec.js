@@ -3,7 +3,7 @@ const path = require('path')
 
 var chai = require('chai');
 
-var FFTW = require('../src/main');
+var fftw = require('../src/main.js')
 var A2_1024 = require('./audioBuffer.js');
 
 
@@ -35,13 +35,17 @@ function getMiscComplexBuffer (size) {
   return result
 }
 
+// before(function (done) {
+//   fftw = await fftw()
+// })
+
 describe('fftw-js', function() {
 
     it('should successfully transform and invert complex 2d input', function () {
       var [n0, n1] = [16, 16]
       var size = n0*n1
       var randomComplex = getMiscComplexBuffer(size)
-      var fftc2c = new FFTW.FFTC2C2D(n0, n1)
+      var fftc2c = new fftw.c2c.fft2d(n0, n1)
       var forward = fftc2c.forward(randomComplex)
       var backward = fftc2c.inverse(forward)
       var backwardScaled = scaleTransform(backward, size)
@@ -57,7 +61,7 @@ describe('fftw-js', function() {
     it('should successfully transform and invert complex input', function () {
       var size = 16
       var randomComplex = getMiscComplexBuffer(size)
-      var fftc2c = new FFTW.FFTC2C(size)
+      var fftc2c = new fftw.c2c.fft1d(size)
       var forward = fftc2c.forward(randomComplex)
       var backward = fftc2c.inverse(forward)
       var backwardScaled = scaleTransform(backward, size)
@@ -72,7 +76,7 @@ describe('fftw-js', function() {
 
     it('should successfully transform and invert real valued input buffer', function() {
         var size = A2_1024.length;
-        var fftr = new FFTW.FFTR2R(size);
+        var fftr = new fftw.r2r.fft1d(size);
         var transform = fftr.forward(A2_1024);
         var transScaled = scaleTransform(transform, size);
         var a2_again = fftr.inverse(transScaled);
@@ -88,7 +92,7 @@ describe('fftw-js', function() {
     it('should successfully transform and invert non-power-of-2 buffers', function() {
         var non2PowSize = 1536;  // 1.5 times test buffer size
         var buffer = getMiscRealBuffer(non2PowSize);
-        var fftr = new FFTW.FFTR2R(non2PowSize);
+        var fftr = new fftw.r2r.fft1d(non2PowSize);
         var transform = fftr.forward(buffer);
         var transScaled = scaleTransform(transform, non2PowSize);
         var backAgain = fftr.inverse(transScaled);

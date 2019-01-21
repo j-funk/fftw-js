@@ -1,24 +1,28 @@
+EXPORTED_FUNCTIONS="['_fftwf_plan_r2r_1d',\
+										 '_fftwf_plan_dft_r2c_1d',\
+										 '_fftwf_plan_dft_c2r_1d',\
+										 '_fftwf_plan_dft_1d',\
+										 '_fftwf_plan_dft_2d',\
+										 '_fftwf_free',\
+										 '_fftwf_malloc',\
+										 '_fftwf_execute',\
+										 '_fftwf_destroy_plan']"
 
-FFTW.js:
-	emcc -O3 \
-	     --memory-init-file 0 \
-	     -s NO_FILESYSTEM=1 \
-	     -s MODULARIZE=1 \
-	     -s PRECISE_F32=1 \
-	     -s EXPORT_NAME="'FFTWModule'" \
-	     -s EXPORTED_FUNCTIONS="['_fftwf_plan_r2r_1d',\
-			 												 '_fftwf_plan_dft_r2c_1d',\
-			 												 '_fftwf_plan_dft_c2r_1d',\
-															 '_fftwf_plan_dft_1d',\
-															 '_fftwf_plan_dft_2d',\
-															 '_fftwf_free',\
-															 '_fftwf_malloc',\
-															 '_fftwf_execute',\
-															 '_fftwf_destroy_plan'\
-															 ]" \
-			 -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']"\
-	     -o FFTW.js \
-	     fftw-3.3.4/.libs/libfftw3f.a
+EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']"
+
+OPTIMIZE=-03
+
+OPTIONS=--memory-init-file 0 \
+				 -s FILESYSTEM=0 \
+				 -s PRECISE_F32=1 \
+				 -s EXPORT_NAME="'FFTWModule'" \
+				 -s EXPORTED_FUNCTIONS=$(EXPORTED_FUNCTIONS) \
+				 -s EXTRA_EXPORTED_RUNTIME_METHODS=$(EXTRA_EXPORTED_RUNTIME_METHODS)
+
+FFTW_STATIC_LIB=fftw-3.3.4/.libs/libfftw3f.a
+
+FFTW.js: $(FFTW_STATIC_LIB)
+	emcc $(OPTIMIZE) $(OPTIONS) -o $@ $^
 
 clean:
 	rm -f FFTW.js
