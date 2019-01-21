@@ -195,11 +195,12 @@ const r2rFactory = function (forwardType, inverseType) {
           fftwf_destroy_plan(this.iplan)
           fftwf_free(this.rptr)
       }
+    }
 }
 
 FFTWModule.r2r.fft1d = r2rFactory(FFTW_R2HC, FFTW_HC2R)
 FFTWModule.r2r.dct1d = r2rFactory(FFTW_REDFT10, FFTW_REDFT01)
-
+FFTWModule.r2r.dst1d = r2rFactory(FFTW_RODFT10, FFTW_RODFT01)
 
 FFTWModule.ready =  function () {
   return new Promise ((resolve, reject) => {
