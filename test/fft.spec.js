@@ -26,23 +26,46 @@ function getMiscRealBuffer(size) {
 
 function getMiscComplexBuffer (size) {
   var result = new Float32Array(2*size)
-  for (var i=0; i<result.length; i++) {
-    result[i] = Math.random()
+  for (var i=0; i<size; i++) {
+    // result[2*i] = i
+    // result[2*i + 1] = i
+    result[2*i] = Math.random()
+    result[2*i + 1] = Math.random()
   }
   return result
 }
 
 describe('fftw-js', function() {
 
+    it('should successfully transform and invert complex 2d input', function () {
+      var [n0, n1] = [16, 16]
+      var size = n0*n1
+      var randomComplex = getMiscComplexBuffer(size)
+      var fftc2c = new FFTW.FFTC2C2D(n0, n1)
+      var forward = fftc2c.forward(randomComplex)
+      var backward = fftc2c.inverse(forward)
+      var backwardScaled = scaleTransform(backward, size)
+
+      for(var i = 0; i < size; i++) {
+        // console.log(forward[i], backward[i])
+        chai.expect(randomComplex[2*i]).to.be.closeTo(backwardScaled[2*i], 0.0005);
+        chai.expect(randomComplex[2*i + 1]).to.be.closeTo(backwardScaled[2*i + 1], 0.0005);
+      }
+      fftc2c.dispose();
+    })
+
     it('should successfully transform and invert complex input', function () {
-      var size = 2048
+      var size = 16
       var randomComplex = getMiscComplexBuffer(size)
       var fftc2c = new FFTW.FFTC2C(size)
       var forward = fftc2c.forward(randomComplex)
       var backward = fftc2c.inverse(forward)
       var backwardScaled = scaleTransform(backward, size)
+
       for(var i = 0; i < size; i++) {
-          chai.expect(randomComplex[i]).to.be.closeTo(backwardScaled[i], 0.0000005);
+        // console.log(forward[i], backward[i])
+        chai.expect(randomComplex[2*i]).to.be.closeTo(backwardScaled[2*i], 0.0005);
+        chai.expect(randomComplex[2*i + 1]).to.be.closeTo(backwardScaled[2*i + 1], 0.0005);
       }
       fftc2c.dispose();
     })
