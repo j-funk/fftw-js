@@ -21,7 +21,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [new webpack.IgnorePlugin(/(fs)/)],
+    plugins: [new webpack.IgnorePlugin(/(fs)/)], // for emscripten build
     watchOptions: {
         ignored: /node_modules/
     }
