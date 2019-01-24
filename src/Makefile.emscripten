@@ -1,4 +1,5 @@
 EXPORTED_FUNCTIONS="['_fftwf_plan_r2r_1d',\
+										 '_fftwf_plan_r2r_2d',\
 										 '_fftwf_plan_dft_r2c_1d',\
 										 '_fftwf_plan_dft_c2r_1d',\
 										 '_fftwf_plan_dft_1d',\
@@ -10,11 +11,13 @@ EXPORTED_FUNCTIONS="['_fftwf_plan_r2r_1d',\
 
 EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']"
 
-OPTIMIZE=-03
+OPTIMIZE=-0s
 
 OPTIONS=--memory-init-file 0 \
 				 -s FILESYSTEM=0 \
 				 -s PRECISE_F32=1 \
+				 -s MODULARIZE=1 \
+				 -s WASM=1 \
 				 -s EXPORT_NAME="'FFTWModule'" \
 				 -s EXPORTED_FUNCTIONS=$(EXPORTED_FUNCTIONS) \
 				 -s EXTRA_EXPORTED_RUNTIME_METHODS=$(EXTRA_EXPORTED_RUNTIME_METHODS)
@@ -25,4 +28,4 @@ FFTW.js: $(FFTW_STATIC_LIB)
 	emcc $(OPTIMIZE) $(OPTIONS) -o $@ $^
 
 clean:
-	rm -f FFTW.js
+	rm -f FFTW.js FFTW.wasm

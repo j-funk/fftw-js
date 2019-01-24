@@ -1,3 +1,10 @@
+
+var FFTWModule = (function() {
+  var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
+  return (
+function(FFTWModule) {
+  FFTWModule = FFTWModule || {};
+
 // Copyright 2010 The Emscripten Authors.  All rights reserved.
 // Emscripten is available under two separate licenses, the MIT license and the
 // University of Illinois/NCSA Open Source License.  Both these licenses can be
@@ -106,9 +113,7 @@ if (ENVIRONMENT_IS_NODE) {
 
   Module['arguments'] = process['argv'].slice(2);
 
-  if (typeof module !== 'undefined') {
-    module['exports'] = Module;
-  }
+  // MODULARIZE will export the module in the proper place outside, we don't need to export here
 
   process['on']('uncaughtException', function(ex) {
     // suppress ExitStatus exceptions from showing an error
@@ -162,6 +167,11 @@ if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
     scriptDirectory = self.location.href;
   } else if (document.currentScript) { // web
     scriptDirectory = document.currentScript.src;
+  }
+  // When MODULARIZE (and not _INSTANCE), this JS may be executed later, after document.currentScript
+  // is gone, so we saved it, and we use it here instead of any other info.
+  if (_scriptDir) {
+    scriptDirectory = _scriptDir;
   }
   // blob urls look like blob:http://site.com/etc/etc and we cannot infer anything from them.
   // otherwise, slice off the final part of the url to find the script directory.
@@ -2087,6 +2097,12 @@ var real__fftwf_plan_r2r_1d = asm["_fftwf_plan_r2r_1d"]; asm["_fftwf_plan_r2r_1d
   return real__fftwf_plan_r2r_1d.apply(null, arguments);
 };
 
+var real__fftwf_plan_r2r_2d = asm["_fftwf_plan_r2r_2d"]; asm["_fftwf_plan_r2r_2d"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__fftwf_plan_r2r_2d.apply(null, arguments);
+};
+
 var real__free = asm["_free"]; asm["_free"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2183,6 +2199,10 @@ var _fftwf_plan_r2r_1d = Module["_fftwf_plan_r2r_1d"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["_fftwf_plan_r2r_1d"].apply(null, arguments) };
+var _fftwf_plan_r2r_2d = Module["_fftwf_plan_r2r_2d"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_fftwf_plan_r2r_2d"].apply(null, arguments) };
 var _free = Module["_free"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2389,6 +2409,28 @@ if (!Module["ALLOC_NONE"]) Object.defineProperty(Module, "ALLOC_NONE", { get: fu
 
 
 
+// Modularize mode returns a function, which can be called to
+// create instances. The instances provide a then() method,
+// must like a Promise, that receives a callback. The callback
+// is called when the module is ready to run, with the module
+// as a parameter. (Like a Promise, it also returns the module
+// so you can use the output of .then(..)).
+Module['then'] = function(func) {
+  // We may already be ready to run code at this time. if
+  // so, just queue a call to the callback.
+  if (Module['calledRun']) {
+    func(Module);
+  } else {
+    // we are not ready to call then() yet. we must call it
+    // at the same time we would call onRuntimeInitialized.
+    var old = Module['onRuntimeInitialized'];
+    Module['onRuntimeInitialized'] = function() {
+      if (old) old();
+      func(Module);
+    };
+  }
+  return Module;
+};
 
 /**
  * @constructor
@@ -2570,3 +2612,16 @@ run();
 
 
 
+
+
+  return FFTWModule;
+}
+);
+})();
+if (typeof exports === 'object' && typeof module === 'object')
+      module.exports = FFTWModule;
+    else if (typeof define === 'function' && define['amd'])
+      define([], function() { return FFTWModule; });
+    else if (typeof exports === 'object')
+      exports["FFTWModule"] = FFTWModule;
+    

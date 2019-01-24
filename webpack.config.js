@@ -4,7 +4,7 @@ const path = require("path")
 const webpack = require("webpack")
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: [
         "./src/index.js",
     ],
@@ -18,11 +18,24 @@ module.exports = {
                 test: /\.js$/,
                 include: path.resolve(__dirname, "src"),
                 loader: "babel-loader"
+            },
+            {
+                test: /\.wasm$/,
+                type: "javascript/auto",
+                loader: "file-loader",
+                options: {
+                  name: "[name].[ext]"
+                }
             }
+            // {
+            //   test: /\.wasm$/,
+            //   loaders: ['wasm-loader']
+            // }
         ]
     },
     plugins: [new webpack.IgnorePlugin(/(fs)/)], // for emscripten build
     watchOptions: {
         ignored: /node_modules/
-    }
+    },
+    cache: true
 }
