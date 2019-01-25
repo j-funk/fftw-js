@@ -105,7 +105,7 @@ describe('fftw-js', function() {
         var test = plan.forward(x)
 
         for (var i=0; i<y.length; i++) {
-          chai.expect(test[i]).to.be.closeTo(y[i], 0.0005);
+          chai.expect(test[i]).to.be.closeTo(y[i], 0.5);
         }
         plan.dispose()
       })
@@ -151,18 +151,21 @@ describe('fftw-js', function() {
       it ('should compute same result as numpy', function () {
         var dataType = 'r2r'
         var transformName = 'dct1d'
+        var size = testVectors[dataType][transformName]['size']
         var x = testVectors[dataType][transformName]['x']
         var y = testVectors[dataType][transformName]['y']
-        var yShifted = reorganizeNumpyRealOutput(y)
-        var size = testVectors[dataType][transformName]['size']
+        var scale = 2*Math.sqrt(size[0]/2)
+        y = y.map(i=>i * scale)
+        y[0] *= Math.sqrt(2)
+        // var yShifted = reorganizeNumpyRealOutput(y)
         var planConstructor = fftw[dataType][transformName]
         var plan = new planConstructor(size[0])
 
         var test = plan.forward(x)
 
         for (var i=0; i<y.length; i++) {
-          console.log(test[i], yShifted[i])
-          // chai.expect(test[i]).to.be.closeTo(y[i], 0.0005);
+          // console.log(test[i], y[i])
+          chai.expect(test[i]).to.be.closeTo(y[i], 0.0005);
         }
         plan.dispose()
       })

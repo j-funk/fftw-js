@@ -29,10 +29,15 @@ def compute_transform(fn, x):
 def main():
     n = 32
 
-    x_real = np.random.rand(n)
-    x_complex = x_real + 1j*np.random.rand(n)
-    x_2_real = np.random.rand(n, n)
-    x_2_complex = x_2_real + 1j*np.random.rand(n, n)
+    # x_real = np.random.rand(n)
+    # x_complex = x_real + 1j*np.random.rand(n)
+    # x_2_real = np.random.rand(n, n)
+    # x_2_complex = x_2_real + 1j*np.random.rand(n, n)
+
+    x_real = np.arange(n)
+    x_complex = x_real + 1j*np.arange(n)
+    x_2_real = np.arange(n*n).reshape((n,n))
+    x_2_complex = x_2_real + 1j*np.arange(n*n).reshape((n, n))
 
     test_vectors = {
         'c2c': {
@@ -41,7 +46,7 @@ def main():
         },
         'r2r': {
             'dct1d': compute_transform(
-                lambda x: scipy.fftpack.dct(x, norm=None), x_real),
+                lambda x: scipy.fftpack.dct(x, norm="ortho"), x_real),
             'dct2d': compute_transform(scipy.fftpack.dctn, x_2_real),
             'dst1d': compute_transform(scipy.fftpack.dst, x_real),
             'dst2d': compute_transform(scipy.fftpack.dstn, x_2_real),
