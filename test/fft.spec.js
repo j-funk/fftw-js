@@ -154,9 +154,9 @@ describe('fftw-js', function() {
         var size = testVectors[dataType][transformName]['size']
         var x = testVectors[dataType][transformName]['x']
         var y = testVectors[dataType][transformName]['y']
-        var scale = 2*Math.sqrt(size[0]/2)
-        y = y.map(i=>i * scale)
-        y[0] *= Math.sqrt(2)
+        // var scale = 2*Math.sqrt(size[0]/2)
+        // y = y.map(i=>i * scale)
+        // y[0] *= Math.sqrt(2)
         // var yShifted = reorganizeNumpyRealOutput(y)
         var planConstructor = fftw[dataType][transformName]
         var plan = new planConstructor(size[0])
