@@ -1,0 +1,33 @@
+my-getopt.o: my-getopt.c \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/string.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/strings.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h \
+  /home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h \
+  ../config.h my-getopt.h
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/__config:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/compat/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/string.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/features.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/bits/alltypes.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/strings.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libcxx/stdio.h:
+
+/home/SWIN/dshaff/.soft/emsdk/emscripten/1.38.24/system/include/libc/stdio.h:
+
+../config.h:
+
+my-getopt.h:

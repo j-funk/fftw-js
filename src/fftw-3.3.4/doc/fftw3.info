@@ -1,4 +1,4 @@
-This is fftw3.info, produced by makeinfo version 4.13 from fftw3.texi.
+This is fftw3.info, produced by makeinfo version 5.1 from fftw3.texi.
 
 This manual is for FFTW (version 3.3.4, 20 September 2013).
 
@@ -17,9 +17,8 @@ This manual is for FFTW (version 3.3.4, 20 September 2013).
 
      Permission is granted to copy and distribute translations of this
      manual into another language, under the above conditions for
-     modified versions, except that this permission notice may be
-     stated in a translation approved by the Free Software Foundation.
-
+     modified versions, except that this permission notice may be stated
+     in a translation approved by the Free Software Foundation.
 INFO-DIR-SECTION Development
 START-INFO-DIR-ENTRY
 * fftw3: (fftw3).	FFTW User's Manual.
@@ -27,139 +26,139 @@ END-INFO-DIR-ENTRY
 
 
 Indirect:
-fftw3.info-1: 1060
-fftw3.info-2: 298053
+fftw3.info-1: 1058
+fftw3.info-2: 336358
 
 Tag Table:
 (Indirect)
-Node: Top1060
-Node: Introduction1733
-Node: Tutorial8069
-Ref: Tutorial-Footnote-19313
-Node: Complex One-Dimensional DFTs9407
-Node: Complex Multi-Dimensional DFTs15163
-Ref: Complex Multi-Dimensional DFTs-Footnote-118595
-Node: One-Dimensional DFTs of Real Data18730
-Node: Multi-Dimensional DFTs of Real Data23175
-Node: More DFTs of Real Data27105
-Node: The Halfcomplex-format DFT30607
-Node: Real even/odd DFTs (cosine/sine transforms)33216
-Ref: Real even/odd DFTs (cosine/sine transforms)-Footnote-138826
-Ref: Real even/odd DFTs (cosine/sine transforms)-Footnote-239015
-Node: The Discrete Hartley Transform39948
-Ref: The Discrete Hartley Transform-Footnote-142133
-Node: Other Important Topics42382
-Node: SIMD alignment and fftw_malloc42675
-Node: Multi-dimensional Array Format44935
-Node: Row-major Format45556
-Node: Column-major Format47249
-Node: Fixed-size Arrays in C48333
-Node: Dynamic Arrays in C49769
-Node: Dynamic Arrays in C-The Wrong Way51407
-Node: Words of Wisdom-Saving Plans53155
-Node: Caveats in Using Wisdom55830
-Node: FFTW Reference57918
-Node: Data Types and Files58406
-Node: Complex numbers58838
-Node: Precision60579
-Node: Memory Allocation62141
-Node: Using Plans63712
-Node: Basic Interface67752
-Ref: Basic Interface-Footnote-168496
-Node: Complex DFTs68560
-Node: Planner Flags72527
-Node: Real-data DFTs77982
-Node: Real-data DFT Array Format82978
-Node: Real-to-Real Transforms85233
-Node: Real-to-Real Transform Kinds89203
-Node: Advanced Interface91671
-Node: Advanced Complex DFTs92411
-Node: Advanced Real-data DFTs96670
-Node: Advanced Real-to-real Transforms98997
-Node: Guru Interface100103
-Node: Interleaved and split arrays101026
-Node: Guru vector and transform sizes102069
-Node: Guru Complex DFTs104634
-Node: Guru Real-data DFTs107470
-Node: Guru Real-to-real Transforms110393
-Node: 64-bit Guru Interface111712
-Node: New-array Execute Functions114035
-Node: Wisdom118534
-Node: Wisdom Export118893
-Node: Wisdom Import120867
-Node: Forgetting Wisdom122889
-Node: Wisdom Utilities123261
-Node: What FFTW Really Computes124628
-Node: The 1d Discrete Fourier Transform (DFT)125453
-Node: The 1d Real-data DFT126812
-Node: 1d Real-even DFTs (DCTs)128466
-Node: 1d Real-odd DFTs (DSTs)131675
-Node: 1d Discrete Hartley Transforms (DHTs)134617
-Node: Multi-dimensional Transforms135293
-Node: Multi-threaded FFTW137896
-Node: Installation and Supported Hardware/Software139365
-Node: Usage of Multi-threaded FFTW141190
-Node: How Many Threads to Use?144498
-Node: Thread safety145522
-Node: Distributed-memory FFTW with MPI147690
-Node: FFTW MPI Installation150269
-Node: Linking and Initializing MPI FFTW152061
-Node: 2d MPI example153291
-Node: MPI Data Distribution157527
-Node: Basic and advanced distribution interfaces160405
-Node: Load balancing164840
-Node: Transposed distributions166526
-Node: One-dimensional distributions170298
-Node: Multi-dimensional MPI DFTs of Real Data172867
-Node: Other Multi-dimensional Real-data MPI Transforms177515
-Node: FFTW MPI Transposes179688
-Node: Basic distributed-transpose interface180528
-Node: Advanced distributed-transpose interface182712
-Node: An improved replacement for MPI_Alltoall184000
-Node: FFTW MPI Wisdom185976
-Ref: FFTW MPI Wisdom-Footnote-1188719
-Node: Avoiding MPI Deadlocks189632
-Node: FFTW MPI Performance Tips190661
-Node: Combining MPI and Threads192130
-Node: FFTW MPI Reference195601
-Node: MPI Files and Data Types196180
-Node: MPI Initialization197176
-Node: Using MPI Plans198275
-Node: MPI Data Distribution Functions200101
-Node: MPI Plan Creation205557
-Node: MPI Wisdom Communication216234
-Node: FFTW MPI Fortran Interface217160
-Ref: FFTW MPI Fortran Interface-Footnote-1223189
-Node: Calling FFTW from Modern Fortran223596
-Node: Overview of Fortran interface224947
-Node: Extended and quadruple precision in Fortran228399
-Node: Reversing array dimensions229780
-Node: FFTW Fortran type reference233315
-Node: Plan execution in Fortran237802
-Node: Allocating aligned memory in Fortran240698
-Node: Accessing the wisdom API from Fortran244062
-Node: Wisdom File Export/Import from Fortran244839
-Node: Wisdom String Export/Import from Fortran246501
-Node: Wisdom Generic Export/Import from Fortran248489
-Node: Defining an FFTW module250719
-Node: Calling FFTW from Legacy Fortran251788
-Node: Fortran-interface routines253345
-Ref: Fortran-interface routines-Footnote-1257003
-Ref: Fortran-interface routines-Footnote-2257206
-Node: FFTW Constants in Fortran257339
-Node: FFTW Execution in Fortran258494
-Node: Fortran Examples261250
-Node: Wisdom of Fortran?264669
-Node: Upgrading from FFTW version 2266349
-Ref: Upgrading from FFTW version 2-Footnote-1275972
-Node: Installation and Customization276155
-Node: Installation on Unix277799
-Node: Installation on non-Unix systems286462
-Node: Cycle Counters288677
-Node: Generating your own code290429
-Node: Acknowledgments292464
-Node: License and Copyright296184
-Node: Concept Index298053
-Node: Library Index334695
+Node: Top1058
+Node: Introduction1856
+Node: Tutorial8125
+Ref: Tutorial-Footnote-19367
+Node: Complex One-Dimensional DFTs9461
+Node: Complex Multi-Dimensional DFTs15195
+Ref: Complex Multi-Dimensional DFTs-Footnote-118621
+Node: One-Dimensional DFTs of Real Data18756
+Node: Multi-Dimensional DFTs of Real Data23196
+Node: More DFTs of Real Data27122
+Node: The Halfcomplex-format DFT30619
+Node: Real even/odd DFTs (cosine/sine transforms)33228
+Ref: Real even/odd DFTs (cosine/sine transforms)-Footnote-138818
+Ref: Real even/odd DFTs (cosine/sine transforms)-Footnote-239007
+Node: The Discrete Hartley Transform39941
+Ref: The Discrete Hartley Transform-Footnote-142123
+Node: Other Important Topics42373
+Node: SIMD alignment and fftw_malloc42666
+Node: Multi-dimensional Array Format44922
+Node: Row-major Format45542
+Node: Column-major Format47238
+Node: Fixed-size Arrays in C48319
+Node: Dynamic Arrays in C49755
+Node: Dynamic Arrays in C-The Wrong Way51389
+Node: Words of Wisdom-Saving Plans53137
+Node: Caveats in Using Wisdom55805
+Node: FFTW Reference57888
+Node: Data Types and Files58376
+Node: Complex numbers58808
+Node: Precision60546
+Node: Memory Allocation62106
+Node: Using Plans63671
+Node: Basic Interface67696
+Ref: Basic Interface-Footnote-168440
+Node: Complex DFTs68504
+Node: Planner Flags72469
+Node: Real-data DFTs77909
+Node: Real-data DFT Array Format82898
+Node: Real-to-Real Transforms85154
+Node: Real-to-Real Transform Kinds89117
+Node: Advanced Interface91582
+Node: Advanced Complex DFTs92322
+Node: Advanced Real-data DFTs96575
+Node: Advanced Real-to-real Transforms98903
+Node: Guru Interface100008
+Node: Interleaved and split arrays100932
+Node: Guru vector and transform sizes101971
+Node: Guru Complex DFTs104530
+Node: Guru Real-data DFTs107366
+Node: Guru Real-to-real Transforms110285
+Node: 64-bit Guru Interface111604
+Node: New-array Execute Functions113919
+Node: Wisdom118415
+Node: Wisdom Export118774
+Node: Wisdom Import120752
+Node: Forgetting Wisdom122779
+Node: Wisdom Utilities123152
+Node: What FFTW Really Computes124514
+Node: The 1d Discrete Fourier Transform (DFT)125339
+Node: The 1d Real-data DFT126695
+Node: 1d Real-even DFTs (DCTs)128344
+Node: 1d Real-odd DFTs (DSTs)131545
+Node: 1d Discrete Hartley Transforms (DHTs)134481
+Node: Multi-dimensional Transforms135156
+Node: Multi-threaded FFTW137760
+Node: Installation and Supported Hardware/Software139226
+Node: Usage of Multi-threaded FFTW141050
+Node: How Many Threads to Use?144350
+Node: Thread safety145372
+Node: Distributed-memory FFTW with MPI147541
+Node: FFTW MPI Installation150116
+Node: Linking and Initializing MPI FFTW151903
+Node: 2d MPI example153126
+Node: MPI Data Distribution157351
+Node: Basic and advanced distribution interfaces160225
+Node: Load balancing164646
+Node: Transposed distributions166332
+Node: One-dimensional distributions170099
+Node: Multi-dimensional MPI DFTs of Real Data172664
+Node: Other Multi-dimensional Real-data MPI Transforms177305
+Node: FFTW MPI Transposes179478
+Node: Basic distributed-transpose interface180318
+Node: Advanced distributed-transpose interface182491
+Node: An improved replacement for MPI_Alltoall183775
+Node: FFTW MPI Wisdom185744
+Ref: FFTW MPI Wisdom-Footnote-1188482
+Node: Avoiding MPI Deadlocks189396
+Node: FFTW MPI Performance Tips190421
+Node: Combining MPI and Threads191886
+Node: FFTW MPI Reference195349
+Node: MPI Files and Data Types195928
+Node: MPI Initialization196924
+Node: Using MPI Plans198023
+Node: MPI Data Distribution Functions199849
+Node: MPI Plan Creation205306
+Node: MPI Wisdom Communication215982
+Node: FFTW MPI Fortran Interface216908
+Ref: FFTW MPI Fortran Interface-Footnote-1222931
+Node: Calling FFTW from Modern Fortran223339
+Node: Overview of Fortran interface224689
+Node: Extended and quadruple precision in Fortran228144
+Node: Reversing array dimensions229525
+Node: FFTW Fortran type reference233056
+Node: Plan execution in Fortran237550
+Node: Allocating aligned memory in Fortran240433
+Node: Accessing the wisdom API from Fortran243795
+Node: Wisdom File Export/Import from Fortran244572
+Node: Wisdom String Export/Import from Fortran246234
+Node: Wisdom Generic Export/Import from Fortran248219
+Node: Defining an FFTW module250449
+Node: Calling FFTW from Legacy Fortran251520
+Node: Fortran-interface routines253077
+Ref: Fortran-interface routines-Footnote-1256732
+Ref: Fortran-interface routines-Footnote-2256935
+Node: FFTW Constants in Fortran257068
+Node: FFTW Execution in Fortran258222
+Node: Fortran Examples260968
+Node: Wisdom of Fortran?264369
+Node: Upgrading from FFTW version 2266048
+Ref: Upgrading from FFTW version 2-Footnote-1275675
+Node: Installation and Customization275858
+Node: Installation on Unix277499
+Node: Installation on non-Unix systems286144
+Node: Cycle Counters288361
+Node: Generating your own code290112
+Node: Acknowledgments292146
+Node: License and Copyright295862
+Node: Concept Index297732
+Node: Library Index336358
 
 End Tag Table
